@@ -30,7 +30,7 @@ svm_model <- svm(Species ~ ., data = trainData, kernel = "radial")
 predictions <- predict(svm_model, newdata = testData)
 accuracy <- mean(predictions == testData$Species)
 mse <- mean(predictions != testData$Species)
-cat("Accuracy (D-Tree):", round(accuracy, 2),"\nMean Squared Error (MSE) (D-Tree):", round(mse, 2))
+cat("Accuracy (SVM):", round(accuracy, 2),"\nMean Squared Error (MSE) (SVM):", round(mse, 2))
 predict_species <- function(model, new_data) {
   predict(model, newdata = new_data)
 }
