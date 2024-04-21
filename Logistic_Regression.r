@@ -19,7 +19,7 @@ predictions <- predict(simple_log_model, newdata = testData, type = "response")
 predicted_classes <- ifelse(predictions > 0.5, "virginica", "non-virginica")
 mse <- mean((as.numeric(testData$Species == "virginica") - as.numeric(predicted_classes == "virginica"))^2)
 cat("Mean Squared Error (MSE):", round(mse, 2))
-predict_species <- function(simple_log_model, new_data) {
+predict_species <- function(model, new_data) {
   prediction <- predict(model, newdata = new_data, type = "response")
   ifelse(prediction > 0.5, "virginica", "non-virginica")
 }
