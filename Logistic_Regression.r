@@ -23,6 +23,7 @@ predict_species <- function(model, new_data) {
   prediction <- predict(model, newdata = new_data, type = "response")
   ifelse(prediction > 0.5, "virginica", "non-virginica")
 }
+predicted_species <- predict_species(simple_log_model, new_data)
 cat("Predicted species (Simple Logistic Regression):", predicted_species)
 
 # multiple logistic regression
