@@ -17,11 +17,8 @@ palindromes <- function() {
   strings_list <- list(c("h", "e", "l", "l", "o"), c("m", "a", "d", "a", "m"), c("r","a", "c", "e", "c", "a","r"),c("d", "a", "d"), c("h","i"))
   df <- data.frame(strings = I(strings_list))
   print(df)
-  is_palindrome <- function(x) {
-    reversed <- rev(x)
-    pasted <- paste(reversed, collapse = "")
-    original <- paste(x, collapse = "")
-    return(tolower(original) == tolower(pasted))
+  is_palindrome <- function(s) {
+          return(tolower(s) == tolower(rev(s)))
   }
   df$palindrome <- sapply(df$strings, is_palindrome)
   df_palindromes <- df[df$palindrome, ]
