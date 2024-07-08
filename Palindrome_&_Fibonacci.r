@@ -18,7 +18,9 @@ palindromes <- function() {
   df <- data.frame(strings = I(strings_list))
   print(df)
   is_palindrome <- function(s) {
-          return(tolower(s) == tolower(rev(s)))
+    original <- paste(s, collapse = "")
+    reversed <- paste(rev(s), collapse = "")
+    return(tolower(original) == tolower(reversed))
   }
   df$palindrome <- sapply(df$strings, is_palindrome)
   df_palindromes <- df[df$palindrome, ]
